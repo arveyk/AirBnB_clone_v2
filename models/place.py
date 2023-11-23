@@ -2,12 +2,11 @@
 """ Place Module for HBNB project """
 from models.base_model import BaseModel, Base
 from models.review import Review
-#from models.amenity import Amenity
 from sqlalchemy import Column, String, Integer, ForeignKey, Float, Table
 from sqlalchemy.orm import relationship
 
 
-place_amenity = Table("metadata", Base.metadata,
+place_amenity = Table("place_amenity", Base.metadata,
                       Column(
                           "place_id",
                           String(60),
@@ -15,13 +14,12 @@ place_amenity = Table("metadata", Base.metadata,
                           primary_key=True,
                           nullable=False
                           ),
-                          Column(
-                              "amenity_id",String(60),
-                              ForeignKey("amenities.id"),
-                              primary_key=True,
-                              nullable=False
-                              )
-                    )
+                      Column(
+                          "amenity_id", String(60),
+                          ForeignKey("amenities.id"),
+                          primary_key=True,
+                          nullable=False
+                          ))
 
 
 class Place(BaseModel):
@@ -31,20 +29,15 @@ class Place(BaseModel):
     user_id = Column(String(60), ForeignKey('users.id'))
     name = Column(String(128), nullable=False)
     description = Column(String(1024), nullable=True)
-    number_rooms = Column(Integer, nullable=False)
+    number_rooms = Column(Integer, default=0)
     number_bathrooms = Column(Integer, default=0)
     max_guest = Column(Integer, default=0)
     price_by_night = Column(Integer, default=0)
     latitude = Column(Float, nullable=True)
     longitude = Column(Float, nullable=True)
-    reviews = relationship('Review', back_populates='place', cascade="all, delete, delete-orphan")
+    reviews = relationship('Review', backref='place',
+                           cascade="all, delete, delete-orphan")
     amenity_ids = []
-
-    amenities = relationship("Amenity",
-        secondary=place_amenity,
-        back_populates="place_amenities",
-        viewonly=False
-        )
 
     @property
     def reviews(self):
@@ -58,7 +51,7 @@ class Place(BaseModel):
             if value.__dict__['state_id'] == self.id:
                 lis.append(value)
         return lis
-    
+
     @property
     def amenities(self):
         """
@@ -67,7 +60,7 @@ class Place(BaseModel):
         linked to the Place
         """
         return self.amenity_ids
-    
+
     @amenities.setter
     def amenities(self, obj):
         """
