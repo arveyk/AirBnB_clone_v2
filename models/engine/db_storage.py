@@ -41,7 +41,6 @@ class DBStorage:
         """
         dictionary = {}
         for obj in query:
-            del obj.__dict__['_sa_instance_state']
             dictionary[f'{clas.__name__}.{obj.id}'] = obj
         return dictionary
 
