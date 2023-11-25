@@ -21,7 +21,8 @@ class HBNBCommand(cmd.Cmd):
 
     classes = {
                'BaseModel': BaseModel, 'State': State, 'City': City,
-               'User': User, 'Place': Place, 'Review': Review, 'Amenity': Amenity
+               'User': User, 'Place': Place, 'Review': Review,
+               'Amenity': Amenity
               }
     dot_cmds = ['all', 'count', 'show', 'destroy', 'update']
     types = {
