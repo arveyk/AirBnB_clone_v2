@@ -16,7 +16,7 @@ def Hello_HBNB():
 @app.route("/hbnb")
 def HBNB():
     """ Route to display 'HBNB!'"""
-    return "HBNB!"
+    return "HBNB"
 
 if __name__ == '__main__':
     """ Prevents execution when imported"""
