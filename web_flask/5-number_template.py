@@ -69,8 +69,6 @@ def number_template(n):
     """ route that displays in if and only if n is a number
     """
     return render_template('./5-number.html', n=n)
-    #return f'<BODY><H1>Number: {escape(n)}</H></BODY>'
-    
 
 
 if __name__ == '__main__':
