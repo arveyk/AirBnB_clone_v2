@@ -19,7 +19,7 @@ def Hello_HBNB():
 def HBNB():
     """ route to display 'HBNB!'
     """
-    return "HBNB!"
+    return "HBNB"
 
 
 @app.route("/c/<text>")
