@@ -27,22 +27,41 @@ def HBNB():
 def C_is_fun(text="is cool"):
     """ route that displays c and the string int the <text> variable
     """
-    return f'C {escape(text)}'
+    text2 = ""
+    char_len = 0
+    if (text):
+        while char_len < len(text):
+            if text[char_len] == '_':
+                text2 += ' '
+            else:
+                text2 += text[char_len]
+            char_len += 1
+
+    return f'C {escape(text2)}'
 
 
 @app.route("/python/<text>")
 def Python(text="is cool"):
     """ route that displays 'Python' and the string in the <text> variable
     """
-    return f'C {escape(text)}'
+    text2 = ""
+    char_len = 0
+    if (text):
+        while char_len < len(text):
+            if text[char_len] == '_':
+                text2 += ' '
+            else:
+                text2 += text[char_len]
+            char_len += 1
+
+    return f'Python {escape(text2)}'
 
 
-@app.route("/number/<n>")
-def Python(n):
-    """ route that displays 'Python' and the string in the <text> variable
+@app.route("/number/<int:n>")
+def number(n):
+    """ route that displays in if and only if n is a number
     """
-    if (type(n) == int):
-        return f'{escape(n)} is a number'
+    return f'{escape(n)} is a number'
 
 if __name__ == '__main__':
     """ Prevents execution when imported"""
