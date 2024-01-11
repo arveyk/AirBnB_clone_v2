@@ -27,3 +27,7 @@ def C_is_fun(text):
     """ route that displays c and the string int the <text> variable
     """
     return f'C {escape(text)}'
+
+if __name__ == '__main__':
+    """ Prevents execution when imported"""
+    app.run(host='0.0.0.0', port=5000)

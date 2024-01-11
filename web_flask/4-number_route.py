@@ -43,3 +43,7 @@ def Python(n):
     """
     if (type(n) == int):
         return f'{escape(n)} is a number'
+
+if __name__ == '__main__':
+    """ Prevents execution when imported"""
+    app.run(host='0.0.0.0', port=5000)

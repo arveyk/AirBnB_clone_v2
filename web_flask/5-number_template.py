@@ -43,3 +43,7 @@ def Python(n):
     """
     if (type(n) == int):
         return render_template('template/5-number.html', n=n)
+
+if __name__ == '__main__':
+    """ Prevents execution when imported"""
+    app.run(host='0.0.0.0', port=5000)

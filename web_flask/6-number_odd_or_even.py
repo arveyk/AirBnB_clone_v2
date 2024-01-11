@@ -42,3 +42,7 @@ def Python(n):
     """ route that displays 'Python' and the string in the <text> variable
     """
     return render_template('template/6-number_odd_or_even.html', n=n)
+
+if __name__ == '__main__':
+    """ Prevents execution when imported"""
+    app.run(host='0.0.0.0', port=5000)
