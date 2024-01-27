@@ -14,6 +14,13 @@ def Hello_HBNB():
     """
     return "Hello HBNB!"
 
+@app.route("/airbnb-onepage/")
+def Hello_AIRBNB():
+    """
+    Route to dispay 'Hello HBNB'
+    """
+    return "Hello HBNB!"
+
 if __name__ == '__main__':
     """ Prevents execution when imported"""
     app.run(host='0.0.0.0', port=5000)
