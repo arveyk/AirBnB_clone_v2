@@ -21,6 +21,7 @@ ln -s  --force /data/web_static/releases/test/index.html  /data/web_static/relea
 			"alias /data/web_static/hbnb_static;"
 		"}"
  	"}"
-} | sudo tee nginx_file;	
+} >> config.txt;
+< config.txt sudo tee nginx_file;
 chown -hR ubuntu:ubuntu /data/;
 sudo service nginx restart;
