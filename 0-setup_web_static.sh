@@ -22,6 +22,6 @@ ln -s  --force /data/web_static/releases/test/index.html  /data/web_static/relea
 		"}"
  	"}"
 } >> config.txt;
-< config.txt sudo tee nginx_file;
+sudo cat config.txt | sudo tee /etc/nginx/nginx.config;
 chown -hR ubuntu:ubuntu /data/;
 sudo service nginx restart;
